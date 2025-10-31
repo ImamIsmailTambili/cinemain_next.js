@@ -1,4 +1,17 @@
-const tabDetail = ({ film }: any) => {
+interface Film {
+    sinopsis: string;
+    produser: string;
+    sutradara: string;
+    penulis: string;
+    production: string;
+    pemeran: string;
+}
+
+interface FilmProps {
+    film: Film | null;
+}
+
+const tabDetail = ({ film }: FilmProps) => {
     return (
         <div className="mt-10 text-gray-700">
             <h2 className="text-xl font-semibold mb-2">Sinopsis</h2>
