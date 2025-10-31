@@ -3,8 +3,9 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Calendar, Clapperboard, MapPin, CreditCard } from "lucide-react";
+import { Session } from "next-auth";
 
-const detailPesanan = ({ session }: any) => {
+const DetailPesanan = ({ session }: { session: Session | null }) => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const user = session?.user;
@@ -33,7 +34,7 @@ const detailPesanan = ({ session }: any) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                userId: user.id,
+                userId: user?.id,
                 jamTayangId,
                 kursiList: kursi,
             }),
@@ -111,4 +112,4 @@ const detailPesanan = ({ session }: any) => {
     )
 }
 
-export default detailPesanan
+export default DetailPesanan
