@@ -45,5 +45,5 @@ export interface JamTayang {
 
 export interface FilmProps {
     film: Film | null;
-    session: any;
+    session: any | null;
 }
